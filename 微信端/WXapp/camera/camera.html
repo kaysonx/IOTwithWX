@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>实时监控</title>
+
+    <!-- Bootstrap -->
+    <link href="/WXapp/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">实时监控中</h3>
+        </div>
+        <div class="panel-body">
+			<br/>
+            <p class="text-center"><img class="img-responsive" src="http://liusha.s1.natapp.cc/?action=stream"><br/></p>
+			<br/>
+        </div>
+        <div class="panel-footer"><p class="text-center">当前时间为：<span id='span_datetime'></span><br/>By.PLBRT 2016</p></div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/WXapp/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+        $(function(){
+			var datetime = document.getElementById('span_datetime');
+            setInterval(function () {
+                var date = new Date();
+				var year = date.getFullYear();
+				var month = date.getMonth()+1;
+				var day = date.getDate();
+				var hour = date.getHours();
+				var minute = date.getMinutes();
+				var second = date.getSeconds();
+				//alert(year+'年'+month+'月'+day+'日 '+hour':'+minute+':'+second);
+                datetime.innerHTML = year+'年'+month+'月'+day+'日 '+hour+':'+minute+':'+second;
+            }, 1000);
+		});
+    </script>
+</body>
+</html>
